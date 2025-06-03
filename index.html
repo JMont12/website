@@ -15,7 +15,7 @@
         }
 
         #header {
-            animation: expandImage 1s ease-in-out forwards;
+            animation: fadeInBackground 1s ease-in-out forwards;
             position: fixed;
             top: 0;
             left: 0;
@@ -35,27 +35,41 @@
             display: block;
         }
 
+        .left-panel-content {
+            opacity: 0;
+            animation: fadeInContent 1s ease-in-out forwards;
+            animation-delay: 1s;
+            z-index: 10;
+        }
+
         #main {
             opacity: 0;
-            animation: slideInText 1s ease-in-out forwards;
+            animation: slideInRightPanel 1s ease-in-out forwards;
             animation-delay: 1s;
             position: relative;
             z-index: 10;
         }
 
         /* Keyframes for animations */
-        @keyframes expandImage {
+        @keyframes fadeInBackground {
             0% {
-                transform: scale(1);
+                opacity: 0;
             }
             100% {
-                width: 25%;
-                height: auto;
-                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 1;
             }
         }
 
-        @keyframes slideInText {
+        @keyframes fadeInContent {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRightPanel {
             0% {
                 transform: translateX(100%);
                 opacity: 0;
@@ -76,7 +90,9 @@
 
 		<!-- Header -->
 			<header id="header">
-				<div class="inner">
+				
+<div class="inner left-panel-content">
+
 					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
 					<h1><strong>I am Strata</strong>, a super simple<br />
 					responsive site template freebie<br />
@@ -499,7 +515,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 		<!-- Footer -->
 			<footer id="footer">
-				<div class="inner">
+				
+<div class="inner left-panel-content">
+
 					<ul class="icons">
 						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
